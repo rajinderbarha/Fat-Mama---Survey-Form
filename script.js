@@ -206,7 +206,7 @@ submitBtn.addEventListener('click', async (e) => {
             raise_problem: data.raise_problem,
             uploads: data.uploads.map(url => ({ url })),  // mow working  
             payment_process: data.payment_process,
-            receipt_upload:  [{ url: data.receipt_upload }], // working on it
+            receipt_upload: [{ url: data.receipt_upload }], // working on it
             service_charge_info: data.service_charge_info,
             tip_pressure: data.tip_pressure,
             asked_for_review: data.asked_for_review,
@@ -227,15 +227,19 @@ submitBtn.addEventListener('click', async (e) => {
             body: JSON.stringify(payload),
         });
 
+        const result = await response.json();
+
         if (!response.ok) throw new Error('Failed to submit to Airtable');
-        if (response.ok) console.log("Response Status:", response.status);
-        console.log("Airtable Response:", await response.json());
+        console.log("Response Status:", response.status);
+        console.log("Airtable Response:", result);
+
         document.querySelector('.form-container').innerHTML = `
         <div class="thank-you">
             <h2>Thank you for your response!</h2>
             <p>We appreciate your feedback.</p>
         </div>
     `;
+
     } catch (error) {
         console.error("Error submitting to Airtable:", error);
         alert("Something went wrong while saving your response.");
