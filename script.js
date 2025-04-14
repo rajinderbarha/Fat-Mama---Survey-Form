@@ -30,6 +30,32 @@ function showStep(index) {
     }
 }
 
+function updateScore(field, value) {
+    const fieldData = data[field];
+    if (fieldData) {
+        fieldData.answer = value;
+        fieldData.score = value ? 10 : 0; 
+        fieldData.total = fieldData.total; 
+    }
+    calculateTotalScore();
+}
+
+// Calculate total score
+function calculateTotalScore() {
+    let countedScore = 0;
+    let totalScore = 0;
+
+    Object.values(data).forEach(field => {
+        if (field.score !== undefined && field.total !== undefined) {
+            countedScore += field.score;
+            totalScore += field.total;
+        }
+    });
+
+    data.counted_score = countedScore;
+    data.total_score = totalScore;
+}
+
 
 //show step on loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -80,42 +106,20 @@ emailInput.addEventListener('input', () => {
     }
 });
 
-// For Checkboxes
 document.querySelectorAll('input[type="radio"]').forEach(input => {
     input.addEventListener('change', (e) => {
-        const name = e.target.name;  // like 'cleanliness', 'greeted'...
+        const name = e.target.name;  // Like 'cleanliness', 'greeted'...
         const value = e.target.value;
-        data[name] = value;
+        updateScore(name, value);
     });
 });
 
-// For Checkboxes (Multiple Values)
-document.querySelectorAll('input[type="checkbox"]').forEach(input => {
-    input.addEventListener('change', (e) => {
-        const name = e.target.name;  // Always 'welcome' here
-        const value = e.target.value;
 
-        if (e.target.checked) {
-            data[name].push(value);
-        } else {
-            data[name] = data[name].filter(item => item !== value);
-        }
+document.querySelectorAll('textarea').forEach(textarea => {
+    textarea.addEventListener('input', (e) => {
+        const name = e.target.name;
+        data[name] = e.target.value;
     });
-});
-
-// For Textarea 
-document.querySelector('textarea[name="dissatisfaction_reason"]').addEventListener('input', (e) => {
-    data.dissatisfaction_reason = e.target.value;
-});
-
-// For Textarea 
-document.querySelector('textarea[name="best_part_of_visit"]').addEventListener('input', (e) => {
-    data.best_part_of_visit = e.target.value;
-});
-
-// For Textarea 
-document.querySelector('textarea[name="improve_experience"]').addEventListener('input', (e) => {
-    data.improve_experience = e.target.value;
 });
 
 // for uploads
@@ -183,40 +187,138 @@ submitBtn.addEventListener('click', async (e) => {
     const payload = {
         fields: {
             email: data.email,
-            cleanliness: data.cleanliness,
-            greeted: data.greeted,
-            welcome: data.welcome.join(', '),
-            seated: data.seated,
-            qr_informed: data.qr_informed,
-            server_friendly: data.server_friendly,
-            recommendations: data.recommendations,
-            order_repeated: data.order_repeated,
-            food_allergies: data.food_allergies,
-            drinks_time: data.drinks_time,
-            food_time: data.food_time,
-            server_check: data.server_check,
-            second_offer: data.second_offer,
-            table_cleaned: data.table_cleaned,
-            starter_rating: data.starter_rating,
-            main_course_rating: data.main_course_rating,
-            dessert_rating: data.dessert_rating,
-            drink_rating: data.drink_rating,
-            dissatisfied: data.dissatisfied,
-            dissatisfaction_reason: data.dissatisfaction_reason,
-            raise_problem: data.raise_problem,
-            uploads: data.uploads.map(url => ({ url })),  // mow working  
-            payment_process: data.payment_process,
+            cleanliness: data.cleanliness.answer,
+            cleanliness_score: data.cleanliness.score,
+            cleanliness_total: data.cleanliness.total,
+
+            greeted: data.greeted.answer,
+            greeted_score: data.greeted.score,
+            greeted_total: data.greeted.total,
+
+            welcome: data.welcome.answer.join(', '),
+            welcome_score: data.welcome.score,
+            welcome_total: data.welcome.total,
+
+            seated: data.seated.answer,
+            seated_score: data.seated.score,
+            seated_total: data.seated.total,
+
+            qr_informed: data.qr_informed.answer,
+            qr_informed_score: data.qr_informed.score,
+            qr_informed_total: data.qr_informed.total,
+
+            server_friendly: data.server_friendly.answer,
+            server_friendly_score: data.server_friendly.score,
+            server_friendly_total: data.server_friendly.total,
+
+            recommendations: data.recommendations.answer,
+            recommendations_score: data.recommendations.score,
+            recommendations_total: data.recommendations.total,
+
+            order_repeated: data.order_repeated.answer,
+            order_repeated_score: data.order_repeated.score,
+            order_repeated_total: data.order_repeated.total,
+
+            food_allergies: data.food_allergies.answer,
+            food_allergies_score: data.food_allergies.score,
+            food_allergies_total: data.food_allergies.total,
+
+            drinks_time: data.drinks_time.answer,
+            drinks_time_score: data.drinks_time.score,
+            drinks_time_total: data.drinks_time.total,
+
+            food_time: data.food_time.answer,
+            food_time_score: data.food_time.score,
+            food_time_total: data.food_time.total,
+
+            server_check: data.server_check.answer,
+            server_check_score: data.server_check.score,
+            server_check_total: data.server_check.total,
+
+            second_offer: data.second_offer.answer,
+            second_offer_score: data.second_offer.score,
+            second_offer_total: data.second_offer.total,
+
+            table_cleaned: data.table_cleaned.answer,
+            table_cleaned_score: data.table_cleaned.score,
+            table_cleaned_total: data.table_cleaned.total,
+
+            starter_rating: data.starter_rating.answer,
+            starter_rating_score: data.starter_rating.score,
+            starter_rating_total: data.starter_rating.total,
+
+            main_course_rating: data.main_course_rating.answer,
+            main_course_rating_score: data.main_course_rating.score,
+            main_course_rating_total: data.main_course_rating.total,
+
+            dessert_rating: data.dessert_rating.answer,
+            dessert_rating_score: data.dessert_rating.score,
+            dessert_rating_total: data.dessert_rating.total,
+
+            drink_rating: data.drink_rating.answer,
+            drink_rating_score: data.drink_rating.score,
+            drink_rating_total: data.drink_rating.total,
+
+            dissatisfied: data.dissatisfied.answer,
+            dissatisfied: data.dissatisfied.answer,
+            dissatisfied: data.dissatisfied.answer,
+
+            dissatisfaction_reason: data.dissatisfaction_reason.answer,
+
+            raise_problem: data.raise_problem.answer,
+            raise_problem_score: data.raise_problem.score,
+            raise_problem_total: data.raise_problem.total,
+
+            uploads: data.uploads.map(url => ({ url })),  // now working  
+
+            payment_process: data.payment_process.answer,
+            payment_process_score: data.payment_process.score,
+            payment_process_total: data.payment_process.total,
+
             receipt_upload: [{ url: data.receipt_upload }], // working on it
-            service_charge_info: data.service_charge_info,
-            tip_pressure: data.tip_pressure,
-            asked_for_review: data.asked_for_review,
-            honest_review_expected: data.honest_review_expected,
-            got_complimentary: data.got_complimentary,
-            goodbye_experience: data.goodbye_experience,
-            restaurant_cleanliness: data.restaurant_cleanliness,
+
+            service_charge_info: data.service_charge_info.answer,
+            service_charge_info_score: data.service_charge_info.score,
+            service_charge_info_total: data.service_charge_info.total,
+
+            tip_pressure: data.tip_pressure.answer,
+            tip_pressure_score: data.tip_pressure.score,
+            tip_pressure_total: data.tip_pressure.total,
+
+            asked_for_review: data.asked_for_review.answer,
+            asked_for_review_score: data.asked_for_review.score,
+            asked_for_review_total: data.asked_for_review.total,
+
+            honest_review_expected: data.honest_review_expected.answer,
+            honest_review_expected_score: data.honest_review_expected.score,
+            honest_review_expected_total: data.honest_review_expected.total,
+
+            got_complimentary: data.got_complimentary.answer,
+            got_complimentary_score: data.got_complimentary.score,
+            got_complimentary_total: data.got_complimentary.total,
+
+            goodbye_experience: data.goodbye_experience.answer,
+            goodbye_experience_score: data.goodbye_experience.score,
+            goodbye_experience_total: data.goodbye_experience.total,
+
+            restaurant_cleanliness: data.restaurant_cleanliness.answer,
+            restaurant_cleanliness_score: data.restaurant_cleanliness.score,
+            restaurant_cleanliness_total: data.restaurant_cleanliness.total,
+
+            restaurant_ambiance: data.restaurant_ambiance.answer,
+            restaurant_ambiance_score: data.restaurant_ambiance.score,
+            restaurant_ambiance_total: data.restaurant_ambiance.total,
+            
             best_part_of_visit: data.best_part_of_visit,
+
             improve_experience: data.improve_experience,
-            recommend_likelihood: data.recommend_likelihood,
+
+            recommend_likelihood: data.recommend_likelihood.answer,
+            recommend_likelihood_score: data.recommend_likelihood.score,
+            recommend_likelihood_total: data.recommend_likelihood.total,
+
+            counted_score: data.counted_score,
+            total_score: data.total_score,
         }
     };
 
@@ -250,38 +352,117 @@ submitBtn.addEventListener('click', async (e) => {
 
 const data = {
     email: "",
-    cleanliness: "",
-    greeted: "",
-    welcome: [],
-    seated: "",
-    qr_informed: "",
-    server_friendly: "",
-    recommendations: "",
-    order_repeated: "",
-    food_allergies: "",
-    drinks_time: "",
-    food_time: "",
-    server_check: "",
-    second_offer: "",
-    table_cleaned: "",
-    starter_rating: "",
-    main_course_rating: "",
-    dessert_rating: "",
-    drink_rating: "",
-    dissatisfied: "",
-    dissatisfaction_reason: "",
-    raise_problem: "",
+
+    cleanliness: { answer: "", score: 0, total: 10 },
+    greeted: { answer: "", score: 0, total: 10 },
+    welcome: { answer: [], score: 0, total: 15 },
+    seated: { answer: "", score: 0, total: 10 },
+    qr_informed: { answer: "", score: 0, total: 10 },
+
+    server_friendly: { answer: "", score: 0, total: 10 },
+    recommendations: { answer: "", score: 0, total: 5 },
+    order_repeated: { answer: "", score: 0, total: 10 },
+
+    food_allergies: { answer: "", score: 0, total: 10 },
+    drinks_time: { answer: "", score: 0, total: 10 },
+    food_time: { answer: "", score: 0, total: 10 },
+    server_check: { answer: "", score: 0, total: 10 },
+    second_offer: { answer: "", score: 0, total: 10 },
+    table_cleaned: { answer: "", score: 0, total: 5 },
+
+    starter_rating: { answer: "", score: 0, total: 5 },
+    main_course_rating: { answer: "", score: 0, total: 5 },
+    dessert_rating: { answer: "", score: 0, total: 5 },
+    drink_rating: { answer: "", score: 0, total: 5 },
+    dissatisfied: { answer: "", score: 0, total: 5 },
+    dissatisfaction_reason: { answer: "", },
+    raise_problem: { answer: "", score: 0, total: 10 },
     uploads: [],
-    payment_process: "",
+
+    payment_process: { answer: "", score: 0, total: 10 },
     receipt_upload: "",
-    service_charge_info: "",
-    tip_pressure: "",
-    asked_for_review: "",
-    honest_review_expected: "",
-    got_complimentary: "",
-    goodbye_experience: "",
-    restaurant_cleanliness: "",
-    best_part_of_visit: "",
-    improve_experience: "",
-    recommend_likelihood: "",
+    service_charge_info: { answer: "", score: 0, total: 5 },
+    tip_pressure: { answer: "", score: 0, total: 5 },
+    asked_for_review: { answer: "", score: 0, total: 5 },
+    honest_review_expected: { answer: "", score: 0, total: 5 },
+    got_complimentary: { answer: "", score: 0, total: 10 },
+
+    goodbye_experience: { answer: "", score: 0, total: 10 },
+    restaurant_cleanliness: { answer: "", score: 0, total: 10 },
+    restaurant_ambiance: { answer: "", score: 0, total: 10 },
+    best_part_of_visit: { answer: "", },
+    improve_experience: { answer: "", },
+    recommend_likelihood: { answer: "", score: 0, total: 10 },
+
+    counted_score: 0,
+    total_score: 0,
+
 };
+
+function handleInputChange(e) {
+    const input = e.target;
+    const name = input.name;
+    const value = input.value;
+    const score = parseInt(input.getAttribute('score'), 10);
+
+    // Radio: simple assignment
+    if (input.type === 'radio') {
+        data[name].answer = value;
+        data[name].score = score;
+
+        // Checkbox: rebuild array & score from all checked inputs
+    } else if (input.type === 'checkbox') {
+        const checkboxes = document.querySelectorAll(`input[type="checkbox"][name="${name}"]`);
+
+        data[name].answer = [];
+        data[name].score = 0;
+
+        checkboxes.forEach(box => {
+            if (box.checked) {
+                const boxScore = parseInt(box.getAttribute('score'), 10);
+                data[name].answer.push(box.value);
+                data[name].score += boxScore;
+            }
+        });
+    }
+
+    console.log(data);
+}
+
+
+document.querySelectorAll('input[type="radio"]').forEach(input => {
+    input.addEventListener('change', handleInputChange);
+});
+
+function handleCheckboxInputChange(e) {
+    const input = e.target;
+    const name = input.name;
+    const value = input.value;
+    const score = parseInt(input.getAttribute('score'), 10);
+
+    // Initialize the data structure for this question if it doesn't exist
+    if (!data[name]) {
+        data[name] = { answer: [], score: 0 };
+    }
+
+    // Checkbox logic: add or remove the value and update the score
+    if (input.checked) {
+        data[name].answer.push(value);
+        data[name].score += score;
+    } else {
+        // Remove the value and subtract the score if unchecked
+        const index = data[name].answer.indexOf(value);
+        if (index > -1) {
+            data[name].answer.splice(index, 1);
+            data[name].score -= score;
+        }
+    }
+
+    // Log the data object to see the result
+    console.log(data);
+}
+
+// Attach event listener for all checkboxes under "welcome"
+document.querySelectorAll('input[type="checkbox"][name="welcome"]').forEach(input => {
+    input.addEventListener('change', handleCheckboxInputChange);
+});

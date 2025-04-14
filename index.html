@@ -15,22 +15,16 @@
         <div class="form-container">
 
             <div class="intro-section">
-                <p>Each mystery diner must complete the form individually. It is recommended to fill it out step by step
-                    during the dining experience.</p>
-                <p>Please take photos of the dishes and any relevant details based on the questionnaire, and upload them
-                    at
-                    the end.</p>
-                <p>Once finished, ensure you take a photo of the bill/invoice and keep the original. Payment should be
-                    made
-                    by card, and the amount will be reimbursed to your bank card based on the bill/invoice.</p>
+                <p>Each mystery diner must complete the form individually. It is recommended to fill it out step by step during the dining experience.</p>
+                <p>Please take photos of the dishes and any relevant details based on the questionnaire, and upload at the end.</p>
+                <p>Once finished, ensure you take a photo of the bill/invoice and keep the original. Payment should be made by card, and the amount will be reimbursed to your bank card based on the bill/invoice.</p>
                 <p>The consumption limit is <strong>15,000 HUF per person</strong>.</p>
             </div>
 
             <form id="multiStepForm">
                 <div class="email-section">
                     <input type="email" id="emailInput" placeholder="Enter your email" required>
-                    <p id="emailError" style="color: red; display: none;">Please enter a valid email address.(e.g.
-                        abc@def.com)</p>
+                    <p id="emailError" style="color: red; display: none;">Please enter a valid email address.(e.g. abc@def.com)</p>
                 </div>
 
 
@@ -41,61 +35,50 @@
                     <h3>Section 1: First Impressions</h3>
 
                     <div class="question">
-                        <label>1. How would you rate the cleanliness of the restaurant's exterior? <span
-                                class="required">*</span></label>
+                        <label>1. How would you rate the cleanliness of the restaurant's exterior? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="cleanliness" value="5 (Excellent)"> ⭐⭐⭐⭐⭐ Excellent</label>
-                            <label><input type="radio" name="cleanliness" value="4 (Good)"> ⭐⭐⭐⭐ Good</label>
-                            <label><input type="radio" name="cleanliness" value="3 (Average)"> ⭐⭐⭐ Average</label>
-                            <label><input type="radio" name="cleanliness" value="2 (Needs Improvement)"> ⭐⭐ Needs
-                                Improvement</label>
-                            <label><input type="radio" name="cleanliness" value="1 (Poor)"> ⭐ Poor</label>
+                            <label><input type="radio" name="cleanliness" score="10" value="⭐⭐⭐⭐⭐ (Excellent)"> ⭐⭐⭐⭐⭐ Excellent</label>
+                            <label><input type="radio" name="cleanliness" score="7" value="⭐⭐⭐⭐ (Good)"> ⭐⭐⭐⭐ Good</label>
+                            <label><input type="radio" name="cleanliness" score="6" value="⭐⭐⭐ (Average)"> ⭐⭐⭐ Average</label>
+                            <label><input type="radio" name="cleanliness" score="3" value="⭐⭐ (Needs Improvement)"> ⭐⭐ Needs Improvement</label>
+                            <label><input type="radio" name="cleanliness" score="0" value="⭐ (Poor)"> ⭐ Poor</label>
                         </div>
                     </div>
 
                     <div class="question">
                         <label>2. Were you greeted upon entering the restaurant? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="greeted" value="Immediately"> Yes, immediately</label>
-                            <label><input type="radio" name="greeted" value="Few minutes"> Yes, within a few
-                                minutes</label>
-                            <label><input type="radio" name="greeted" value="Waited long"> No, I had to wait for a long
-                                time</label>
-                            <label><input type="radio" name="greeted" value="Not greeted"> No, I was not greeted</label>
+                            <label><input type="radio" name="greeted" score="10" value="Yes, immediately"> Yes, immediately</label>
+                            <label><input type="radio" name="greeted" score="6" value="Yes, within a few minutes"> Yes, within a few minutes</label>
+                            <label><input type="radio" name="greeted" score="3" value="No, I had to wait for a long time"> No, I had to wait for a long time</label>
+                            <label><input type="radio" name="greeted" score="0" value="No, I was not greeted"> No, I was not greeted</label>
                         </div>
                     </div>
 
                     <div class="question">
                         <label>3. How did the servers/receptionists welcome you? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="checkbox" name="welcome" value="Eye contact, smile"> Eye contact,
-                                smile</label>
-                            <label><input type="checkbox" name="welcome" value="Verbal greeting"> Verbal greeting
-                                appropriate to the time of day</label>
-                            <label><input type="checkbox" name="welcome" value="Warm body language"> Warm body
-                                language</label>
-                            <label><input type="checkbox" name="welcome" value="Friendly"> Friendly and
-                                approachable</label>
+                            <label><input type="checkbox" name="welcome" score="4" value="Eye contact, smile"> Eye contact, smile</label>
+                            <label><input type="checkbox" name="welcome" score="4" value="Verbal greeting appropriate to the time of day"> Verbal greeting appropriate to the time of day</label>
+                            <label><input type="checkbox" name="welcome" score="4" value="Warm body language"> Warm body language</label>
+                            <label><input type="checkbox" name="welcome" score="3" value="Friendly and approachable"> Friendly and approachable</label>
                         </div>
                     </div>
 
                     <div class="question">
                         <label>4. Were you led and seated at the table? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="seated" value="Yes"> Yes</label>
-                            <label><input type="radio" name="seated" value="Found myself"> No, I found a table by
-                                myself</label>
-                            <label><input type="radio" name="seated" value="Pointed"> No, but they pointed to the
-                                table</label>
+                            <label><input type="radio" name="seated" score="10" value="Yes"> Yes</label>
+                            <label><input type="radio" name="seated" score="5" value="No, but they pointed to the table"> No, but they pointed to the table</label>
+                            <label><input type="radio" name="seated" score="0" value="No, I found a table by myself"> No, I found a table by myself</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>5. Were you informed about the QR code where the menu can be found? <span
-                                class="required">*</span></label>
+                        <label>5. Were you informed about the QR code where the menu can be found? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="qr_informed" value="Yes"> Yes</label>
-                            <label><input type="radio" name="qr_informed" value="No"> No</label>
+                            <label><input type="radio" name="qr_informed" score="10" value="Yes"> Yes</label>
+                            <label><input type="radio" name="qr_informed" score="0" value="No"> No</label>
                         </div>
                     </div>
 
@@ -107,36 +90,26 @@
                     <div class="question">
                         <label>6. Was your server friendly and welcoming? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="server_friendly" value="Warm and engaging"> Yes, they were
-                                warm
-                                and engaging</label>
-                            <label><input type="radio" name="server_friendly" value="Somewhat"> Somewhat, but not very
-                                enthusiastic</label>
-                            <label><input type="radio" name="server_friendly" value="Uninterested"> No, they seemed
-                                uninterested</label>
+                            <label><input type="radio" name="server_friendly" score="10" value="Yes, they were warm and engaging"> Yes, they were warm and engaging</label>
+                            <label><input type="radio" name="server_friendly" score="5" value="Somewhat, but not very enthusiastic"> Somewhat, but not very enthusiastic</label>
+                            <label><input type="radio" name="server_friendly" score="0" value="No, they seemed uninterested"> No, they seemed uninterested</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>7. Did your server offer recommendations or suggest complementary items? <span
-                                class="required">*</span></label>
+                        <label>7. Did your server offer recommendations or suggest complementary items? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="recommendations" value="Great suggestions"> Yes, they made
-                                great suggestions</label>
-                            <label><input type="radio" name="recommendations" value="Not helpful"> They made some
-                                recommendations, but not helpful ones</label>
-                            <label><input type="radio" name="recommendations" value="No recommendations"> No, they did
-                                not
-                                offer any recommendations</label>
+                            <label><input type="radio" name="recommendations" score="5" value="Yes, they made great suggestions"> Yes, they made great suggestions</label>
+                            <label><input type="radio" name="recommendations" score="3" value="They made some recommendations, but not helpful ones"> They made some recommendations, but not helpful ones</label>
+                            <label><input type="radio" name="recommendations" score="0" value="No, they did not offer any recommendations"> No, they did not offer any recommendations</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>8. Was your order repeated back to you for confirmation? <span
-                                class="required">*</span></label>
+                        <label>8. Was your order repeated back to you for confirmation? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="order_repeated" value="Yes"> Yes</label>
-                            <label><input type="radio" name="order_repeated" value="No"> No</label>
+                            <label><input type="radio" name="order_repeated" score="10" value="Yes"> Yes</label>
+                            <label><input type="radio" name="order_repeated" score="0" value="No"> No</label>
                         </div>
                     </div>
 
@@ -148,61 +121,50 @@
                     <div class="question">
                         <label>9. Were you asked about any food allergies? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="food_allergies" value="Yes"> Yes</label>
-                            <label><input type="radio" name="food_allergies" value="No"> No</label>
+                            <label><input type="radio" name="food_allergies" score="10" value="Yes"> Yes</label>
+                            <label><input type="radio" name="food_allergies" score="0" value="No"> No</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>10. Did your drinks arrive within a reasonable time? <span
-                                class="required">*</span></label>
+                        <label>10. Did your drinks arrive within a reasonable time? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="drinks_time" value="5-10 minutes"> Yes, within 5-10
-                                minutes</label>
-                            <label><input type="radio" name="drinks_time" value="Longer than expected"> It took longer
-                                than
-                                expected</label>
-                            <label><input type="radio" name="drinks_time" value="Too long"> No, it took too long</label>
+                            <label><input type="radio" name="drinks_time" score="10" value="Yes, within 5-10 minutes"> Yes, within 5-10 minutes</label>
+                            <label><input type="radio" name="drinks_time" score="5" value="It took longer than expected"> It took longer than expected</label>
+                            <label><input type="radio" name="drinks_time" score="0" value="No, it took too long"> No, it took too long</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>11. Did your food arrive within a reasonable time? <span
-                                class="required">*</span></label>
+                        <label>11. Did your food arrive within a reasonable time? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="food_time" value="15-30 minutes"> Yes, within 15-30
-                                minutes</label>
-                            <label><input type="radio" name="food_time" value="Longer than expected"> It took longer
-                                than
-                                expected</label>
-                            <label><input type="radio" name="food_time" value="Too long"> No, it took too long</label>
+                            <label><input type="radio" name="food_time" score="10" value="Yes, within 15-30 minutes"> Yes, within 15-30 minutes</label>
+                            <label><input type="radio" name="food_time" score="5" value="It took longer than expected"> It took longer than expected</label>
+                            <label><input type="radio" name="food_time" score="0" value="No, it took too long"> No, it took too long</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>12. Did a server check on you after delivering your main course? <span
-                                class="required">*</span></label>
+                        <label>12. Did a server check on you after delivering your main course? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="server_check" value="Yes"> Yes</label>
-                            <label><input type="radio" name="server_check" value="No"> No</label>
+                            <label><input type="radio" name="server_check" score="10" value="Yes"> Yes</label>
+                            <label><input type="radio" name="server_check" score="0" value="No"> No</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>13. Were you offered a second drink or any dessert? <span
-                                class="required">*</span></label>
+                        <label>13. Were you offered a second drink or any dessert? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="second_offer" value="Yes"> Yes</label>
-                            <label><input type="radio" name="second_offer" value="No"> No</label>
+                            <label><input type="radio" name="second_offer" score="10" value="Yes"> Yes</label>
+                            <label><input type="radio" name="second_offer" score="0" value="No"> No</label>
                         </div>
                     </div>
 
                     <div class="question">
-                        <label>14. Was the table cleaned of empty dishes and glasses after each consumed food and drink?
-                            *</label>
+                        <label>14. Was the table cleaned of empty dishes and glasses after each consumed food and drink?*</label>
                         <div class="options">
-                            <label><input type="radio" name="table_cleaned" value="Yes"> Yes</label>
-                            <label><input type="radio" name="table_cleaned" value="No"> No</label>
+                            <label><input type="radio" name="table_cleaned" score="5" value="Yes"> Yes</label>
+                            <label><input type="radio" name="table_cleaned" score="0" value="No"> No</label>
                         </div>
                     </div>
 
@@ -213,47 +175,37 @@
 
                     <!-- 15 -->
                     <div class="question">
-                        <label>15. How would you rate the quality of your starter? <span
-                                class="required">*</span></label>
+                        <label>15. How would you rate the quality of your starter? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="starter_rating" value="5 (Excellent)"> ⭐⭐⭐⭐⭐
-                                (Excellent)</label>
-                            <label><input type="radio" name="starter_rating" value="4 (Good)"> ⭐⭐⭐⭐ (Good)</label>
-                            <label><input type="radio" name="starter_rating" value="3 (Average)"> ⭐⭐⭐ (Average)</label>
-                            <label><input type="radio" name="starter_rating" value="2 (Needs Improvement)"> ⭐⭐ (Needs
-                                Improvement)</label>
-                            <label><input type="radio" name="starter_rating" value="1 (Poor)"> ⭐ (Poor)</label>
+                            <label><input type="radio" name="starter_rating" score="5" value="⭐⭐⭐⭐⭐ (Excellent)"> ⭐⭐⭐⭐⭐ (Excellent)</label>
+                            <label><input type="radio" name="starter_rating" score="4" value="⭐⭐⭐⭐ (Good)"> ⭐⭐⭐⭐ (Good)</label>
+                            <label><input type="radio" name="starter_rating" score="3" value="⭐⭐⭐ (Average)"> ⭐⭐⭐ (Average)</label>
+                            <label><input type="radio" name="starter_rating" score="2" value="⭐⭐ (Needs Improvement)"> ⭐⭐ (Needs Improvement)</label>
+                            <label><input type="radio" name="starter_rating" score="1" value="⭐ (Poor)"> ⭐ (Poor)</label>
                         </div>
                     </div>
 
                     <!-- 16 -->
                     <div class="question">
-                        <label>16. How would you rate the quality of your main course? <span
-                                class="required">*</span></label>
+                        <label>16. How would you rate the quality of your main course? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="main_course_rating" value="5 (Excellent)"> ⭐⭐⭐⭐⭐
-                                (Excellent)</label>
-                            <label><input type="radio" name="main_course_rating" value="4 (Good)"> ⭐⭐⭐⭐ (Good)</label>
-                            <label><input type="radio" name="main_course_rating" value="3 (Average)"> ⭐⭐⭐
-                                (Average)</label>
-                            <label><input type="radio" name="main_course_rating" value="2 (Needs Improvement)"> ⭐⭐
-                                (Needs Improvement)</label>
-                            <label><input type="radio" name="main_course_rating" value="1 (Poor)"> ⭐ (Poor)</label>
+                            <label><input type="radio" name="main_course_rating" score="5" value="⭐⭐⭐⭐⭐ (Excellent)"> ⭐⭐⭐⭐⭐ (Excellent)</label>
+                            <label><input type="radio" name="main_course_rating" score="4" value="⭐⭐⭐⭐ (Good)"> ⭐⭐⭐⭐ (Good)</label>
+                            <label><input type="radio" name="main_course_rating" score="3" value="⭐⭐⭐ (Average)"> ⭐⭐⭐ (Average)</label>
+                            <label><input type="radio" name="main_course_rating" score="2" value="⭐⭐ (Needs Improvement)"> ⭐⭐ (Needs Improvement)</label>
+                            <label><input type="radio" name="main_course_rating" score="1" value="⭐ (Poor)"> ⭐ (Poor)</label>
                         </div>
                     </div>
 
                     <!-- 17 -->
                     <div class="question">
-                        <label>17. How would you rate the quality of your dessert? <span
-                                class="required">*</span></label>
+                        <label>17. How would you rate the quality of your dessert? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="dessert_rating" value="5 (Excellent)"> ⭐⭐⭐⭐⭐
-                                (Excellent)</label>
-                            <label><input type="radio" name="dessert_rating" value="4 (Good)"> ⭐⭐⭐⭐ (Good)</label>
-                            <label><input type="radio" name="dessert_rating" value="3 (Average)"> ⭐⭐⭐ (Average)</label>
-                            <label><input type="radio" name="dessert_rating" value="2 (Needs Improvement)"> ⭐⭐ (Needs
-                                Improvement)</label>
-                            <label><input type="radio" name="dessert_rating" value="1 (Poor)"> ⭐ (Poor)</label>
+                            <label><input type="radio" name="dessert_rating" score="5" value="⭐⭐⭐⭐⭐ (Excellent)"> ⭐⭐⭐⭐⭐ (Excellent)</label>
+                            <label><input type="radio" name="dessert_rating" score="4" value="⭐⭐⭐⭐ (Good)"> ⭐⭐⭐⭐ (Good)</label>
+                            <label><input type="radio" name="dessert_rating" score="3" value="⭐⭐⭐ (Average)"> ⭐⭐⭐ (Average)</label>
+                            <label><input type="radio" name="dessert_rating" score="2" value="⭐⭐ (Needs Improvement)"> ⭐⭐ (Needs Improvement)</label>
+                            <label><input type="radio" name="dessert_rating" score="1" value="⭐ (Poor)"> ⭐ (Poor)</label>
                         </div>
                     </div>
 
@@ -261,24 +213,20 @@
                     <div class="question">
                         <label>18. How would you rate your drinks? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="drink_rating" value="5 (Excellent)"> ⭐⭐⭐⭐⭐
-                                (Excellent)</label>
-                            <label><input type="radio" name="drink_rating" value="4 (Good)"> ⭐⭐⭐⭐ (Good)</label>
-                            <label><input type="radio" name="drink_rating" value="3 (Average)"> ⭐⭐⭐ (Average)</label>
-                            <label><input type="radio" name="drink_rating" value="2 (Needs Improvement)"> ⭐⭐ (Needs
-                                Improvement)</label>
-                            <label><input type="radio" name="drink_rating" value="1 (Poor)"> ⭐ (Poor)</label>
+                            <label><input type="radio" name="drink_rating" score="5" value="⭐⭐⭐⭐⭐ (Excellent)"> ⭐⭐⭐⭐⭐ (Excellent)</label>
+                            <label><input type="radio" name="drink_rating" score="4" value="⭐⭐⭐⭐ (Good)"> ⭐⭐⭐⭐ (Good)</label>
+                            <label><input type="radio" name="drink_rating" score="3" value="⭐⭐⭐ (Average)"> ⭐⭐⭐ (Average)</label>
+                            <label><input type="radio" name="drink_rating" score="2" value="⭐⭐ (Needs Improvement)"> ⭐⭐ (Needs Improvement)</label>
+                            <label><input type="radio" name="drink_rating" score="1" value="⭐ (Poor)"> ⭐ (Poor)</label>
                         </div>
                     </div>
 
                     <!-- 19 -->
                     <div class="question">
-                        <label>19. Was there anything you were dissatisfied with regarding the quality of the food/drink
-                            or
-                            the way it was prepared? <span class="required">*</span></label>
+                        <label>19. Was there anything you were dissatisfied with regarding the quality of the food the way it was prepared? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="dissatisfied" value="Yes"> Yes</label>
-                            <label><input type="radio" name="dissatisfied" value="No"> No</label>
+                            <label><input type="radio" name="dissatisfied" score="5" value="Yes"> Yes</label>
+                            <label><input type="radio" name="dissatisfied" score="0" value="No"> No</label>
                         </div>
                     </div>
 
@@ -290,15 +238,11 @@
 
                     <!-- 21 -->
                     <div class="question">
-                        <label>21. If you were not satisfied with something, did you raise the problem with one of our
-                            staff
-                            members? <span class="required">*</span></label>
+                        <label>21. If you were not satisfied with something, did you raise the problem with one of our staff members? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="raise_problem" value="Solved"> Yes, and they offered an
-                                explanation/solution/apology for it</label>
-                            <label><input type="radio" name="raise_problem" value="Not Solved"> Yes, but nothing has
-                                happened</label>
-                            <label><input type="radio" name="raise_problem" value="No"> No</label>
+                            <label><input type="radio" name="raise_problem" score="10" value="Yes, and they offered an explanation/solution/apology for it"> Yes, and they offered an explanation/solution/apology for it</label>
+                            <label><input type="radio" name="raise_problem" score="0" value="Yes, but nothing has happened"> Yes, but nothing has happened</label>
+                            <label><input type="radio" name="raise_problem" score="0" value="No"> No</label>
                         </div>
                     </div>
 
@@ -318,14 +262,11 @@
                     <div class="question">
                         <label>23. How would you rate the payment process? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="payment_process" value="5 (Very efficient)"> ⭐⭐⭐⭐⭐ (Very
-                                efficient)</label>
-                            <label><input type="radio" name="payment_process" value="4 (Smooth)"> ⭐⭐⭐⭐ (Smooth)</label>
-                            <label><input type="radio" name="payment_process" value="3 (Average)"> ⭐⭐⭐ (Average)</label>
-                            <label><input type="radio" name="payment_process" value="2 (Slightly slow)"> ⭐⭐ (Slightly
-                                slow)</label>
-                            <label><input type="radio" name="payment_process" value="1 (Very slow)"> ⭐ (Very
-                                slow)</label>
+                            <label><input type="radio" score="10" name="payment_process" value="⭐⭐⭐⭐⭐ (Very efficient)"> ⭐⭐⭐⭐⭐  (efficient)</label>
+                            <label><input type="radio" score="8" name="payment_process" value="⭐⭐⭐⭐ (Smooth)"> ⭐⭐⭐⭐ (Smooth)</label>
+                            <label><input type="radio" score="6" name="payment_process" value="⭐⭐⭐ (Average)"> ⭐⭐⭐ (Average)</label>
+                            <label><input type="radio" score="3" name="payment_process" value="⭐⭐ (Slightly slow)"> ⭐⭐  (slow)</label>
+                            <label><input type="radio" score="0" name="payment_process" value="⭐ (Very slow)"> ⭐  (slow)</label>
                         </div>
                     </div>
 
@@ -337,54 +278,47 @@
 
                     <!-- 25 -->
                     <div class="question">
-                        <label>25. Before paying, were you informed that a service charge and/or tip is not mandatory,
-                            but
-                            welcomed? <span class="required">*</span></label>
+                        <label>25. Before paying, were you informed that a service charge and/or tip is not mandatory, but welcomed? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="service_charge_info" value="Yes"> Yes</label>
-                            <label><input type="radio" name="service_charge_info" value="No"> No</label>
+                            <label><input type="radio" name="service_charge_info" score="5" value="Yes"> Yes</label>
+                            <label><input type="radio" name="service_charge_info" score="0" value="No"> No</label>
                         </div>
                     </div>
 
                     <!-- 27 -->
                     <div class="question">
-                        <label>27. Did you feel pressured to give a tip/service charge? <span
-                                class="required">*</span></label>
+                        <label>27. Did you feel pressured to give a tip/service charge? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="tip_pressure" value="Yes"> Yes</label>
-                            <label><input type="radio" name="tip_pressure" value="No"> No</label>
+                            <label><input type="radio" name="tip_pressure" score="5" value="Yes"> Yes</label>
+                            <label><input type="radio" name="tip_pressure" score="0" value="No"> No</label>
                         </div>
                     </div>
 
                     <!-- 28 -->
                     <div class="question">
-                        <label>28. Were you asked to leave a review about your visit? <span
-                                class="required">*</span></label>
+                        <label>28. Were you asked to leave a review about your visit? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="asked_for_review" value="Yes"> Yes</label>
-                            <label><input type="radio" name="asked_for_review" value="No"> No</label>
+                            <label><input type="radio" name="asked_for_review" score="5" value="Yes"> Yes</label>
+                            <label><input type="radio" name="asked_for_review" score="0" value="No"> No</label>
                         </div>
                     </div>
 
                     <!-- 29 -->
                     <div class="question">
-                        <label>29. Has it been made clear to you that we expect a completely honest review? <span
-                                class="required">*</span></label>
+                        <label>29. Has it been made clear to you that we expect a completely honest review? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="honest_review_expected" value="Yes"> Yes</label>
-                            <label><input type="radio" name="honest_review_expected" value="No"> No</label>
+                            <label><input type="radio" name="honest_review_expected" score="5" value="Yes"> Yes</label>
+                            <label><input type="radio" name="honest_review_expected" score="0" value="No"> No</label>
                         </div>
                     </div>
 
                     <!-- 30 -->
                     <div class="question">
-                        <label>30. Did you get your complimentary drink or dessert after leaving a review? <span
-                                class="required">*</span></label>
+                        <label>30. Did you get your complimentary drink or dessert after leaving a review? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="got_complimentary" value="Yes"> Yes</label>
-                            <label><input type="radio" name="got_complimentary" value="No"> No</label>
-                            <label><input type="radio" name="got_complimentary" value="Did not submit review"> I did not
-                                submit a review</label>
+                            <label><input type="radio" name="got_complimentary" score="10" value="Yes"> Yes</label>
+                            <label><input type="radio" name="got_complimentary" score="0" value="No"> No</label>
+                            <label><input type="radio" name="got_complimentary" score="0" value="Did not submit review"> I did not submit a review</label>
                         </div>
                     </div>
 
@@ -393,13 +327,9 @@
                         <label>31. Did a team member say goodbye or thank you as you left? <span
                                 class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="goodbye_experience" value="Friendly"> Yes, they were
-                                friendly
-                                and encouraging to come back</label>
-                            <label><input type="radio" name="goodbye_experience" value="Rushed"> Yes, but it was rushed
-                                and
-                                inhospitable</label>
-                            <label><input type="radio" name="goodbye_experience" value="No"> No</label>
+                            <label><input type="radio" name="goodbye_experience" score="10" value="Yes, they were friendly and encouraging to come back"> Yes, they were friendly and encouraging to come back</label>
+                            <label><input type="radio" name="goodbye_experience" score="5" value="Yes, but it was rushed and inhospitable"> Yes, but it was rushed and inhospitable</label>
+                            <label><input type="radio" name="goodbye_experience" score="0" value="No"> No</label>
                         </div>
                     </div>
 
@@ -412,42 +342,30 @@
                     <div class="question">
                         <label>32. How clean and tidy was the restaurant inside? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="restaurant_cleanliness" value="5 (Very clean)"> ⭐⭐⭐⭐⭐ (Very
-                                clean)</label>
-                            <label><input type="radio" name="restaurant_cleanliness" value="4 (Clean)"> ⭐⭐⭐⭐
-                                (Clean)</label>
-                            <label><input type="radio" name="restaurant_cleanliness" value="3 (Somewhat clean)"> ⭐⭐⭐
-                                (Somewhat clean)</label>
-                            <label><input type="radio" name="restaurant_cleanliness" value="2 (Messy)"> ⭐⭐
-                                (Messy)</label>
-                            <label><input type="radio" name="restaurant_cleanliness" value="1 (Dirty)"> ⭐
-                                (Dirty)</label>
+                            <label><input type="radio" name="restaurant_cleanliness" score="10" value="⭐⭐⭐⭐⭐ (Very clean)"> ⭐⭐⭐⭐⭐ (Very clean)</label>
+                            <label><input type="radio" name="restaurant_cleanliness" score="8" value="⭐⭐⭐⭐ (Clean)"> ⭐⭐⭐⭐ (Clean)</label>
+                            <label><input type="radio" name="restaurant_cleanliness" score="6" value="⭐⭐⭐ (Somewhat clean)"> ⭐⭐⭐ (Somewhat clean)</label>
+                            <label><input type="radio" name="restaurant_cleanliness" score="3" value="⭐⭐ (Messy)"> ⭐⭐ (Messy)</label>
+                            <label><input type="radio" name="restaurant_cleanliness" score="0" value="⭐ (Dirty)"> ⭐ (Dirty)</label>
                         </div>
                     </div>
 
                     <!-- 33 -->
                     <div class="question">
-                        <label>33. How would you rate the overall atmosphere (lighting, music, temperature)? <span
-                                class="required">*</span></label>
+                        <label>33. How would you rate the overall atmosphere (lighting, music, temperature)? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="restaurant_ambiance" value="5 (Perfect ambiance)"> ⭐⭐⭐⭐⭐
-                                (Perfect ambiance)</label>
-                            <label><input type="radio" name="restaurant_ambiance" value="4 (Good atmosphere)"> ⭐⭐⭐⭐
-                                (Good atmosphere)</label>
-                            <label><input type="radio" name="restaurant_ambiance" value="3 (Okay, but could be better)">
-                                ⭐⭐⭐ (Okay, but could be better)</label>
-                            <label><input type="radio" name="restaurant_ambiance" value="2 (Uncomfortable)"> ⭐⭐
-                                (Uncomfortable)</label>
-                            <label><input type="radio" name="restaurant_ambiance" value="1 (Bad ambiance)"> ⭐ (Bad
-                                ambiance)</label>
+                            <label><input type="radio" name="restaurant_ambiance" score="10" value="⭐⭐⭐⭐⭐ (Perfect ambiance)"> ⭐⭐⭐⭐⭐ (Perfect ambiance)</label>
+                            <label><input type="radio" name="restaurant_ambiance" score="8" value="⭐⭐⭐⭐ (Good atmosphere)"> ⭐⭐⭐⭐ (Good atmosphere)</label>
+                            <label><input type="radio" name="restaurant_ambiance" score="6" value="⭐⭐⭐ (Okay, but could be better)"> ⭐⭐⭐ (Okay, but could be better)</label>
+                            <label><input type="radio" name="restaurant_ambiance" score="3" value="⭐⭐ (Uncomfortable)"> ⭐⭐ (Uncomfortable)</label>
+                            <label><input type="radio" name="restaurant_ambiance" score="0" value="⭐ (Bad ambiance)"> ⭐ (Bad ambiance)</label>
                         </div>
                     </div>
 
                     <!-- 34 -->
                     <div class="question">
                         <label>34. What was the best part of your visit? <span class="required">*</span></label>
-                        <textarea name="best_part_of_visit" placeholder="Share your best moment here..."
-                            required></textarea>
+                        <textarea name="best_part_of_visit" placeholder="Share your best moment here..." required></textarea>
                     </div>
 
                     <!-- 35 -->
@@ -458,19 +376,13 @@
 
                     <!-- 36 -->
                     <div class="question">
-                        <label>36. How likely are you to recommend Fat Mama to a friend or family member? <span
-                                class="required">*</span></label>
+                        <label>36. How likely are you to recommend Fat Mama to a friend or family member? <span class="required">*</span></label>
                         <div class="options">
-                            <label><input type="radio" name="recommend_likelihood" value="5 (Very likely)"> ⭐⭐⭐⭐⭐ (Very
-                                likely)</label>
-                            <label><input type="radio" name="recommend_likelihood" value="4 (Likely)"> ⭐⭐⭐⭐
-                                (Likely)</label>
-                            <label><input type="radio" name="recommend_likelihood" value="3 (Neutral)"> ⭐⭐⭐
-                                (Neutral)</label>
-                            <label><input type="radio" name="recommend_likelihood" value="2 (Unlikely)"> ⭐⭐
-                                (Unlikely)</label>
-                            <label><input type="radio" name="recommend_likelihood" value="1 (Not at all)"> ⭐ (Not at
-                                all)</label>
+                            <label><input type="radio" name="recommend_likelihood" score="10" value="⭐⭐⭐⭐⭐ (Very likely)"> ⭐⭐⭐⭐⭐ (Very likely)</label>
+                            <label><input type="radio" name="recommend_likelihood" score="8" value="⭐⭐⭐⭐ (Likely)"> ⭐⭐⭐⭐ (Likely)</label>
+                            <label><input type="radio" name="recommend_likelihood" score="6" value="⭐⭐⭐ (Neutral)"> ⭐⭐⭐ (Neutral)</label>
+                            <label><input type="radio" name="recommend_likelihood" score="3" value="⭐⭐ (Unlikely)"> ⭐⭐ (Unlikely)</label>
+                            <label><input type="radio" name="recommend_likelihood" score="0" value="⭐ (Not at all)"> ⭐ (Not at all)</label>
                         </div>
                     </div>
 
