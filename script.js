@@ -34,8 +34,8 @@ function updateScore(field, value) {
     const fieldData = data[field];
     if (fieldData) {
         fieldData.answer = value;
-        fieldData.score = value ? 10 : 0; 
-        fieldData.total = fieldData.total; 
+        fieldData.score = value ? 10 : 0;
+        fieldData.total = fieldData.total;
     }
     calculateTotalScore();
 }
@@ -187,6 +187,7 @@ submitBtn.addEventListener('click', async (e) => {
     const payload = {
         fields: {
             email: data.email,
+
             cleanliness: data.cleanliness.answer,
             cleanliness_score: data.cleanliness.score,
             cleanliness_total: data.cleanliness.total,
@@ -207,6 +208,9 @@ submitBtn.addEventListener('click', async (e) => {
             qr_informed_score: data.qr_informed.score,
             qr_informed_total: data.qr_informed.total,
 
+            first_impresion_score: data.cleanliness.score + data.greeted.score + data.welcome.score + data.seated.score + data.qr_informed.score,
+            first_impresion_total: data.cleanliness.total + data.greeted.total + data.welcome.total + data.seated.total + data.qr_informed.total,
+
             server_friendly: data.server_friendly.answer,
             server_friendly_score: data.server_friendly.score,
             server_friendly_total: data.server_friendly.total,
@@ -218,6 +222,9 @@ submitBtn.addEventListener('click', async (e) => {
             order_repeated: data.order_repeated.answer,
             order_repeated_score: data.order_repeated.score,
             order_repeated_total: data.order_repeated.total,
+
+            ordering_recomendation_score: data.server_friendly.score + data.recommendations.score + data.order_repeated.score,
+            ordering_recomendation_total: data.server_friendly.total + data.recommendations.total + data.order_repeated.total,
 
             food_allergies: data.food_allergies.answer,
             food_allergies_score: data.food_allergies.score,
@@ -243,6 +250,9 @@ submitBtn.addEventListener('click', async (e) => {
             table_cleaned_score: data.table_cleaned.score,
             table_cleaned_total: data.table_cleaned.total,
 
+            service_score: data.food_allergies.score + data.drinks_time.score + data.server_check.score + data.second_offer.score + data.table_cleaned.score,
+            service_total: data.food_allergies.total + data.drinks_time.total + data.server_check.total + data.second_offer.total + data.table_cleaned.total,
+
             starter_rating: data.starter_rating.answer,
             starter_rating_score: data.starter_rating.score,
             starter_rating_total: data.starter_rating.total,
@@ -260,8 +270,8 @@ submitBtn.addEventListener('click', async (e) => {
             drink_rating_total: data.drink_rating.total,
 
             dissatisfied: data.dissatisfied.answer,
-            dissatisfied: data.dissatisfied.answer,
-            dissatisfied: data.dissatisfied.answer,
+            dissatisfied_score: data.dissatisfied.score,
+            dissatisfied_total: data.dissatisfied.total,
 
             dissatisfaction_reason: data.dissatisfaction_reason.answer,
 
@@ -271,11 +281,14 @@ submitBtn.addEventListener('click', async (e) => {
 
             uploads: data.uploads.map(url => ({ url })),  // now working  
 
+            food_drink_score: data.starter_rating.score + data.main_course_rating.score + data.dessert_rating.score + data.drink_rating.score + data.dissatisfied.score + data.raise_problem.score,
+            food_drink_total: data.starter_rating.total + data.main_course_rating.total + data.dessert_rating.total + data.drink_rating.total + data.dissatisfied.total + data.raise_problem.total,
+
             payment_process: data.payment_process.answer,
             payment_process_score: data.payment_process.score,
             payment_process_total: data.payment_process.total,
 
-            receipt_upload: [{ url: data.receipt_upload }], // working on it
+            receipt_upload: [{ url: data.receipt_upload }], // now working
 
             service_charge_info: data.service_charge_info.answer,
             service_charge_info_score: data.service_charge_info.score,
@@ -301,6 +314,9 @@ submitBtn.addEventListener('click', async (e) => {
             goodbye_experience_score: data.goodbye_experience.score,
             goodbye_experience_total: data.goodbye_experience.total,
 
+            payment_goodbye_score: data.payment_process.score + data.service_charge_info.score + data.tip_pressure.score + data.asked_for_review.score + data.honest_review_expected.score + data.got_complimentary.score + data.goodbye_experience.score,
+            payment_goodbye_total: data.payment_process.total + data.service_charge_info.total + data.tip_pressure.total + data.asked_for_review.total + data.honest_review_expected.total + data.got_complimentary.total + data.goodbye_experience.total,
+
             restaurant_cleanliness: data.restaurant_cleanliness.answer,
             restaurant_cleanliness_score: data.restaurant_cleanliness.score,
             restaurant_cleanliness_total: data.restaurant_cleanliness.total,
@@ -308,7 +324,7 @@ submitBtn.addEventListener('click', async (e) => {
             restaurant_ambiance: data.restaurant_ambiance.answer,
             restaurant_ambiance_score: data.restaurant_ambiance.score,
             restaurant_ambiance_total: data.restaurant_ambiance.total,
-            
+
             best_part_of_visit: data.best_part_of_visit,
 
             improve_experience: data.improve_experience,
@@ -316,6 +332,9 @@ submitBtn.addEventListener('click', async (e) => {
             recommend_likelihood: data.recommend_likelihood.answer,
             recommend_likelihood_score: data.recommend_likelihood.score,
             recommend_likelihood_total: data.recommend_likelihood.total,
+
+            environment_overall_experience_score: data.restaurant_cleanliness.score + data.restaurant_ambiance.score + data.recommend_likelihood.score,
+            environment_overall_experience_total: data.restaurant_cleanliness.total + data.restaurant_ambiance.total + data.recommend_likelihood.total,
 
             counted_score: data.counted_score,
             total_score: data.total_score,
